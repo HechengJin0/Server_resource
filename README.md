@@ -14,7 +14,11 @@ https://crc.pitt.edu/viz
 ## matlab interface
 `module load matlab`  
 `matlab`
- 
+
+## mricron interface
+`module load mricron`  
+`matlab`
+
 ## Storage
 personal 75GB: `/ihome/tibrahim/hej24`  
 group 5TB: `/bgfs/tibrahim/tad64/`
