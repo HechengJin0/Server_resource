@@ -4,8 +4,8 @@
 or `ssh hej24@h2p.crc.pitt.edu`
 
 ## Check space
+`crc-usage.py` 
 `crc-quota.py`  
-`crc-usage.pl`
 `du -sh .`
 
 ## GUI interface
