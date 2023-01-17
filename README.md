@@ -8,6 +8,9 @@ or `ssh hej24@h2p.crc.pitt.edu`
 `crc-quota.py`  
 `du -sh .`
 
+## copy data
+`rsync`
+
 ## GUI interface
 Web Portal Method:  
 https://crc.pitt.edu/viz
