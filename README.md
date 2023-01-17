@@ -9,8 +9,10 @@ or `ssh hej24@h2p.crc.pitt.edu`
 `du -sh .`
 
 ## copy data
+storinator -> crc
+in crc: `mkdir my_folder`
 in storinator:
-`rsync -r my_folder_in_storinator hej24@h2p.crc.pitt.edu:/bgfs/tibrahim/hej24/my_folder_in_storinator`
+`rsync -r my_folder hej24@h2p.crc.pitt.edu:/bgfs/tibrahim/hej24/my_folder`
 
 ## GUI interface
 Web Portal Method:  
