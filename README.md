@@ -10,7 +10,7 @@ or `ssh hej24@h2p.crc.pitt.edu`
 
 ## copy data
 in storinator:
-`rsync -r my_folder_in_storinator hej24@h2p.crc.pitt.edu:/bgfs/tibrahim/hej24/`
+`rsync -r my_folder_in_storinator hej24@h2p.crc.pitt.edu:/bgfs/tibrahim/hej24/my_folder_in_storinator`
 
 ## GUI interface
 Web Portal Method:  
