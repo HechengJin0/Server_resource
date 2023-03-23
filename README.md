@@ -14,6 +14,11 @@ in crc: `mkdir my_folder`
 in storinator:
 `rsync -r my_folder hej24@h2p.crc.pitt.edu:/bgfs/tibrahim/hej24/my_folder`
 
+## mount cluster:    
+`sshfs -o kill_on_unmount,reconnect,allow_other hej24@storinator:/home cluster_mount`   
+`sshfs -o kill_on_unmount,reconnect,allow_other hej24@crc:/bgfs/tibrahim /Users/jin/crc_mount`   
+`diskutil umount force /Users/jin/crc_mount`   
+
 ## GUI interface
 Web Portal Method:  
 https://crc.pitt.edu/viz
