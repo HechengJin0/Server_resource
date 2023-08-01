@@ -35,6 +35,32 @@ https://crc.pitt.edu/viz
 personal 75GB: `/ihome/tibrahim/hej24`  
 group 5TB: `/bgfs/tibrahim/tad64/`
 
+## allocate multi core in crc
+`crc-interactive.py --smp --time=12 --num-cores=8 --mem=10`    
+potential error message: 
+```
+>> parpool(8)
+Starting parallel pool (parpool) using the 'local' profile ...
+Error using parpool (line 113)
+Parallel pool failed to start with the following error. For more detailed information, validate the profile 'local' in the Cluster
+Profile Manager.
+
+Caused by:
+    Error using parallel.internal.pool.InteractiveClient>iThrowWithCause (line 668)
+    Failed to locate and destroy old interactive jobs.
+        Error using parallel.Cluster/findJob (line 74)
+        Unknown type: concurrentconcurrent.
+```
+fixed by https://www.mathworks.com/matlabcentral/answers/92124-why-am-i-unable-to-use-parpool-with-the-local-scheduler-or-validate-my-local-configuration-of-parall `5) Clear the local scheduler data folder`
+```
+>> prefdir
+ans =
+    '/ihome/tibrahim/hej24/.matlab/R2019b'
+>> exit
+rm -r /ihome/tibrahim/hej24/.matlab/local_cluster_jobs
+matlab
+```
+
 
 
 ## Useful link
