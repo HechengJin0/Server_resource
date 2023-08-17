@@ -8,20 +8,20 @@ or `ssh hej24@h2p.crc.pitt.edu`
 `crc-quota.py`  
 `du -sh .`     
 subfolder size: `du -sh *`    
-count: `ls -1 | wc -l`
+count files: `ls -1 | wc -l`
 
 ## copy data
 storinator -> crc
 in crc: `mkdir my_folder`
 in storinator:
-`rsync -r my_folder hej24@h2p.crc.pitt.edu:/bgfs/tibrahim/hej24/my_folder`
+`rsync -r my_folder crc:/bgfs/tibrahim/hej24/my_folder`
 
 crc-> storinator
 in storinator
 `rsync -avh crc:/bgfs/tibrahim/.... /home/... --remove-source-files`
 
 ## mount cluster:    
-`sshfs -o kill_on_unmount,reconnect,allow_other hej24@storinator:/home cluster_mount`   
+`sshfs -o kill_on_unmount,reconnect,allow_other hej24@cluster:/mnt/storinator cluster_mount`   
 `sshfs -o kill_on_unmount,reconnect,allow_other hej24@crc:/bgfs/tibrahim /Users/jin/crc_mount`   
 `diskutil umount force /Users/jin/crc_mount`   
 
@@ -39,7 +39,7 @@ https://crc.pitt.edu/viz
 
 ## Storage
 personal 75GB: `/ihome/tibrahim/hej24`  
-group 5TB: `/bgfs/tibrahim/tad64/`
+group 5TB: `/bgfs/tibrahim/`
 
 ## allocate multi core in crc
 `crc-interactive.py --smp --time=12 --num-cores=8 --mem=10`    
@@ -110,7 +110,7 @@ vim config
 ### Edit `config`
 ```
 Host crc
-   HostName h2t.crc.pitt.edu
+   HostName h2p.crc.pitt.edu
    User hej24
    IdentityFile %d/.ssh/hj_crc_key
 ```
