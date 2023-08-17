@@ -6,7 +6,8 @@ or `ssh hej24@h2p.crc.pitt.edu`
 ## Check space
 `crc-usage.py` 
 `crc-quota.py`  
-`du -sh .`
+`du -sh .` `du -sh *`
+` ls -1 | wc -l`
 
 ## copy data
 storinator -> crc
