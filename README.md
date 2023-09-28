@@ -21,7 +21,7 @@ in storinator
 `rsync -avh crc:/bgfs/tibrahim/.... /home/... --remove-source-files`
 
 ## run singulairty in crc
-`module load singularity`
+`module load singularity`     
 `singularity pull fmriprep_23.0.0.sif docker://nipreps/fmriprep:23.0.0`
 
 ## mount cluster:    
