@@ -26,7 +26,9 @@ in storinator
 
 ## mount cluster:    
 `sshfs -o kill_on_unmount,reconnect,allow_other hej24@cluster:/mnt/storinator cluster_mount`   
-`sshfs -o kill_on_unmount,reconnect,allow_other hej24@crc:/bgfs/tibrahim /Users/jin/crc_mount`   
+`sshfs -o kill_on_unmount,reconnect,allow_other hej24@crc:/ix1/tibrahim /Users/jin/crc_mount`   
+`sshfs -o kill_on_unmount,reconnect,allow_other hej24@crc:/ix1/haizenstein/hej24 crc_gpn_mount`
+
 `diskutil umount force /Users/jin/crc_mount`   
 
 ## GUI interface
