@@ -12,9 +12,9 @@ count files: `ls -1 | wc -l`
 
 ## copy data
 storinator -> crc
-in crc: `mkdir my_folder`
 in storinator:
-`rsync -r my_folder crc:/bgfs/tibrahim/hej24/my_folder`
+`rsync -r my_folder crc:/bgfs/tibrahim/hej24/`
+remember: do not put / in `my_folder`, otherwises it transfers subfolders to /hej24/
 
 crc-> storinator
 in storinator
