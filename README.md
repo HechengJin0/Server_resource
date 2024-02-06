@@ -35,13 +35,9 @@ in storinator
 Web Portal Method:  
 https://crc.pitt.edu/viz
 
-## matlab interface
+## matlab/mricron interface
 `module load matlab`  
-`matlab`
-
-## mricron interface
 `module load mricron`  
-`matlab`
 
 ## Storage
 personal 75GB: `/ihome/tibrahim/hej24`  
@@ -49,7 +45,8 @@ group 5TB: `/bgfs/tibrahim/`
 
 ## allocate multi core in crc
 `crc-interactive.py --smp --time=12 --num-cores=8 --mem=10`    
-potential error message: 
+
+## potential error message run matlab parpool: 
 ```
 >> parpool(8)
 Starting parallel pool (parpool) using the 'local' profile ...
@@ -73,6 +70,11 @@ rm -r /ihome/tibrahim/hej24/.matlab/local_cluster_jobs
 matlab
 ```
 
+## freesurfer install
+```
+wget https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.4.1/freesurfer-linux-centos7_x86_64-7.4.1.tar.gz
+tar -xzvf freesurfer-linux-centos8_x86_64-7.3.2.tar.gz
+```
 
 
 ## Useful link
