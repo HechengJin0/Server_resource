@@ -75,7 +75,22 @@ matlab
 wget https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.4.1/freesurfer-linux-centos7_x86_64-7.4.1.tar.gz
 tar -xzvf freesurfer-linux-centos8_x86_64-7.3.2.tar.gz
 ```
+## BrainVein install
+```
+wget https://www.vtk.org/files/release/9.3/VTK-9.3.0.tar.gz
+tar -xzvf VTK-9.3.0.tar.gz
+[hej24@login1 VTK_build]$ pwd
+/ihome/tibrahim/hej24/BrainVein/VTK_build
+cmake -DCMAKE_BUILD_TYPE=Release -S ../VTK-9.3.0/ -B /ihome/tibrahim/hej24/BrainVein/VTK_build/
+cmake --build /ihome/tibrahim/hej24/BrainVein/VTK_build/
+```
+VTK_build takes 1.5h in crc. 
+[100%] Built target DomainsChemistryOpenGL2 
 
+```
+git clone https://github.com/InsightSoftwareConsortium/ITK
+[hej24@login1 ITK_build]$ pwd
+/ihome/tibrahim/hej24/BrainVein/ITK_build
 
 ## Useful link
 https://burntyellow.github.io/#6 
