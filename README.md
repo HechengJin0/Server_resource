@@ -143,6 +143,7 @@ CMAKE_INSTALL_PREFIX=/usr/local/vtk
 press 'g'
 ```
 4. configure and generate 
+```
 cmake ..  
 make -j 4 #multi cores
 ```
@@ -166,14 +167,22 @@ ccmake ..
 3. change options
 ```
 press 'c' #empty cache
+press 't' # advanced options
 CMAKE_INSTALL_PREFIX=/usr/local/itk
 Module_ITKVtkGlue=ON
-VTK_DIR=/usr/local/vtk/lib/cmake/vtk-6.0
+VTK_DIR=/usr/local/vtk/lib/cmake/vtk-9.3
 press 'g'
 ```
+4. configure and generate 
+```
+cmake ..  
+make -j 4 #multi cores
+```
 
-
-
+5.
+```
+sudo make install
+```
 
 ## Useful link
 https://burntyellow.github.io/#6 
