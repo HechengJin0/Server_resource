@@ -178,11 +178,41 @@ press 'g'
 cmake ..  
 make -j 4 #multi cores
 ```
-
+[100%] Built target ITKIONIFTI-all
 5.
 ```
 sudo make install
 ```
+Up-to-date: /usr/local/itk/include/ITK-5.4
+
+
+1. Download BrainVein source
+```
+unzip src\ copy\ 34.zip
+mv src\ copy\ 34 BrainVein_src
+```
+2. Create a new folder inside, and open cmake gui
+```
+cd BrainVein_src
+mkdir BrainVeinBuild
+cd BrainVeinBuild
+ccmake ..
+```
+3. change options
+```
+press 'c' #empty cache
+press 't' # advanced options
+CMAKE_INSTALL_PREFIX=/usr/local/brainvein
+ITK_DIR=/usr/local/itk/lib/cmake/ITK-5.4
+press 'g'
+```
+4. configure and generate 
+```
+cmake ..  
+make -j 4 #multi cores
+```
+/Users/jin/BrainVein/BrainVein_src/bvImageArrayDilationShells.cpp:84:57: warning: implicit conversion from 'int' to 'unsigned short' changes value from 2000000000 to 37888 [-Wconstant-conversion]
+[100%] Built target BrainVein
 
 ## Useful link
 https://burntyellow.github.io/#6 
