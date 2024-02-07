@@ -92,6 +92,89 @@ git clone https://github.com/InsightSoftwareConsortium/ITK
 [hej24@login1 ITK_build]$ pwd
 /ihome/tibrahim/hej24/BrainVein/ITK_build
 ```
+error
+```
+[hej24@login1 ITK_build]$ cmake -DCMAKE_BUILD_TYPE=Release -S  ../ITK/ -B .
+-- The CXX compiler identification is GNU 4.8.5
+-- The C compiler identification is GNU 4.8.5
+-- Detecting CXX compiler ABI info
+CMake Error in /ihome/tibrahim/hej24/BrainVein/ITK_build/CMakeFiles/CMakeTmp/CMakeLists.txt:
+  Target "cmTC_44193" requires the language dialect "CXX17" , but CMake does
+  not know the compile flags to use to enable it.
+
+
+CMake Error at /usr/local/share/cmake-3.20/Modules/CMakeDetermineCompilerABI.cmake:49 (try_compile):
+  Failed to generate test project build system.
+Call Stack (most recent call first):
+  /usr/local/share/cmake-3.20/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)
+  CMakeLists.txt:46 (project)
+
+[hej24@login0 ITK_build]$ cmake -S ../ITK -B .
+CMake Error at CMakeLists.txt:15 (cmake_minimum_required):
+  CMake 3.16.3...3.19.7 or higher is required.  You are running version
+  2.8.12.2
+```
+
+```
+wget https://github.com/Kitware/CMake/releases/download/v3.28.3/cmake-3.28.3-linux-x86_64.tar.gz
+tar -xzvf cmake-3.28.3-linux-x86_64.tar.gz
+```
+
+local: https://intranet.neuro.polymtl.ca/geek-tips/programming-languages/c%2B%2B/installation-of-vtk-and-itk-on-mac-os-x.html
+
+1. Download VTK source
+```
+cd /Users/jin/BrainVein
+wget https://www.vtk.org/files/release/9.3/VTK-9.3.0.tar.gz
+tar -xzvf VTK-9.3.0.tar.gz
+```
+2. Create a new folder inside, and open cmake gui
+```
+jin@Jins-Mac-mini VTK-9.3.0 % pwd
+/Users/jin/BrainVein/VTK-9.3.0
+mkdir VTKBuild
+cd VTKBuild
+ccmake ..
+```
+3. change options
+```
+press 'c' #empty cache
+CMAKE_INSTALL_PREFIX=/usr/local/vtk
+press 'g'
+```
+4. configure and generate 
+cmake ..  
+make -j 4 #multi cores
+```
+[100%] Linking CXX shared library ../../lib/libvtkViewsInfovis-9.3.dylib
+[100%] Built target ViewsInfovis
+5.
+```
+sudo make install
+```
+1. Download ITK source
+```
+cd /Users/jin/BrainVein
+git clone https://github.com/InsightSoftwareConsortium/ITK
+```
+2. Create a new folder inside, and open cmake gui
+```
+jin@Jins-Mac-mini ITKBuild % pwd
+/Users/jin/BrainVein/ITK/ITKBuild
+ccmake ..
+```
+3. change options
+```
+press 'c' #empty cache
+CMAKE_INSTALL_PREFIX=/usr/local/itk
+Module_ITKVtkGlue=ON
+VTK_DIR=/usr/local/vtk/lib/cmake/vtk-6.0
+press 'g'
+```
+
+
+
+
 ## Useful link
 https://burntyellow.github.io/#6 
 
