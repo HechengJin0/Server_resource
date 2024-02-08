@@ -76,52 +76,9 @@ wget https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.4.1/freesurfer-lin
 tar -xzvf freesurfer-linux-centos8_x86_64-7.3.2.tar.gz
 ```
 ## BrainVein install
-```
-wget https://www.vtk.org/files/release/9.3/VTK-9.3.0.tar.gz
-tar -xzvf VTK-9.3.0.tar.gz
-[hej24@login1 VTK_build]$ pwd
-/ihome/tibrahim/hej24/BrainVein/VTK_build
-cmake -DCMAKE_BUILD_TYPE=Release -S ../VTK-9.3.0/ -B /ihome/tibrahim/hej24/BrainVein/VTK_build/
-cmake --build /ihome/tibrahim/hej24/BrainVein/VTK_build/
-```
-VTK_build takes 1.5h in crc. 
-[100%] Built target DomainsChemistryOpenGL2 
 
-```
-git clone https://github.com/InsightSoftwareConsortium/ITK
-[hej24@login1 ITK_build]$ pwd
-/ihome/tibrahim/hej24/BrainVein/ITK_build
-```
-error
-```
-[hej24@login1 ITK_build]$ cmake -DCMAKE_BUILD_TYPE=Release -S  ../ITK/ -B .
--- The CXX compiler identification is GNU 4.8.5
--- The C compiler identification is GNU 4.8.5
--- Detecting CXX compiler ABI info
-CMake Error in /ihome/tibrahim/hej24/BrainVein/ITK_build/CMakeFiles/CMakeTmp/CMakeLists.txt:
-  Target "cmTC_44193" requires the language dialect "CXX17" , but CMake does
-  not know the compile flags to use to enable it.
-
-
-CMake Error at /usr/local/share/cmake-3.20/Modules/CMakeDetermineCompilerABI.cmake:49 (try_compile):
-  Failed to generate test project build system.
-Call Stack (most recent call first):
-  /usr/local/share/cmake-3.20/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)
-  CMakeLists.txt:46 (project)
-
-[hej24@login0 ITK_build]$ cmake -S ../ITK -B .
-CMake Error at CMakeLists.txt:15 (cmake_minimum_required):
-  CMake 3.16.3...3.19.7 or higher is required.  You are running version
-  2.8.12.2
-```
-
-```
-wget https://github.com/Kitware/CMake/releases/download/v3.28.3/cmake-3.28.3-linux-x86_64.tar.gz
-tar -xzvf cmake-3.28.3-linux-x86_64.tar.gz
-```
-
-local: https://intranet.neuro.polymtl.ca/geek-tips/programming-languages/c%2B%2B/installation-of-vtk-and-itk-on-mac-os-x.html
-
+install local: https://intranet.neuro.polymtl.ca/geek-tips/programming-languages/c%2B%2B/installation-of-vtk-and-itk-on-mac-os-x.html
+#### VTK install
 1. Download VTK source
 ```
 cd /Users/jin/BrainVein
@@ -153,6 +110,7 @@ make -j 4 #multi cores
 ```
 sudo make install
 ```
+#### ITK install
 1. Download ITK source
 ```
 cd /Users/jin/BrainVein
@@ -183,9 +141,7 @@ make -j 4 #multi cores
 ```
 sudo make install
 ```
-Up-to-date: /usr/local/itk/include/ITK-5.4
-
-
+#### BrainVein install
 1. Download BrainVein source
 ```
 unzip src\ copy\ 34.zip
@@ -211,8 +167,31 @@ press 'g'
 cmake ..  
 make -j 4 #multi cores
 ```
-/Users/jin/BrainVein/BrainVein_src/bvImageArrayDilationShells.cpp:84:57: warning: implicit conversion from 'int' to 'unsigned short' changes value from 2000000000 to 37888 [-Wconstant-conversion]
-[100%] Built target BrainVein
+warning during make: /Users/jin/BrainVein/BrainVein_src/bvImageArrayDilationShells.cpp:84:57: warning: implicit conversion from 'int' to 'unsigned short' changes value from 2000000000 to 37888 [-Wconstant-conversion]
+
+binary saved in : /Users/jin/BrainVein/BrainVein_src/BrainVeinBuild/BrainVein.app/Contents/MacOS/BrainVein
+
+5. Errors fixed
+5.1 `make`
+```
+error:
+   bvImageArrayDilationShells.cpp:625:33: error: use of undeclared identifier 'FALSE'
+        bool branchPointFound = FALSE;
+fix: change FALSE -> false, TRUE -> true
+```
+5.2 `BrainVein binary`
+```
+error: 42	Assertion failed: (x < m_imageDimensionX), function GetNumberOfNonZeroVoxelsWithIndexX, file bvImageArrayUShort3D.cpp, line 106.
+fix: // assert(x < m_imageDimensionX);
+re-do step2-4 (re-compile)
+
+error: vtkRayCastImageDisplayH:9     WARN| Error: no override found for 'vtkRayCastImageDisplayHelper'. zsh: segmentation fault
+fix: vtk_module_autoinit(TARGETS BrainVein MODULES ${VTK_LIBRARIES} )  # add find_package in CMakeLists.txt
+```
+5.3 warning `BrainVein binary`
+```
+vtkOpenGLVolumeLookupTa:76    WARN| vtkOpenGLVolumeOpacityTable (0x600003516eb0): This OpenGL implementation does not support the required texture size of 65536, falling back to maximum allowed, 16384.This may cause an incorrect lookup table mapping.
+```
 
 ## Useful link
 https://burntyellow.github.io/#6 
