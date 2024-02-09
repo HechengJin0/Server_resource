@@ -190,7 +190,8 @@ fix: vtk_module_autoinit(TARGETS BrainVein MODULES ${VTK_LIBRARIES} )  # add fin
 ```
 5.3 warning `BrainVein binary`
 ```
-vtkOpenGLVolumeLookupTa:76    WARN| vtkOpenGLVolumeOpacityTable (0x600003516eb0): This OpenGL implementation does not support the required texture size of 65536, falling back to maximum allowed, 16384.This may cause an incorrect lookup table mapping.
+warning: WARN| vtkOpenGLVolumeOpacityTable (0x600003516eb0): This OpenGL implementation does not support the required texture size of 65536, falling back to maximum allowed, 16384.This may cause an incorrect lookup table mapping.
+fix: 
 ```
 
 ## Useful link
