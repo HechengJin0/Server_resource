@@ -211,6 +211,7 @@ pip install nibabel
         - nibabel
         - einops
         - segmentation-models-pytorch==0.3.2
+        - torchio
 
 ```
 
