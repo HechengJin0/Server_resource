@@ -75,7 +75,7 @@ matlab
 wget https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.4.1/freesurfer-linux-centos7_x86_64-7.4.1.tar.gz
 tar -xzvf freesurfer-linux-centos8_x86_64-7.3.2.tar.gz
 ```
-## BrainVein install
+# BrainVein install
 
 install local: https://intranet.neuro.polymtl.ca/geek-tips/programming-languages/c%2B%2B/installation-of-vtk-and-itk-on-mac-os-x.html
 #### VTK install
@@ -197,6 +197,22 @@ fix:
 ## Useful link
 https://burntyellow.github.io/#6 
 
+# wmh_seg setup
+check https://github.com/jinghangli98/wmh_seg/blob/main/wmh.yml
+```
+module load gcc/8.2.0
+module load python/anaconda3.9-2021.11
+
+conda create --name wmhseg : environment location: /ihome/tibrahim/hej24/.conda/envs/wmhseg
+source activate wmhseg
+pip install nibabel
+        - torch==1.11.0
+        - torchvision==0.12.0
+        - nibabel
+        - einops
+        - segmentation-models-pytorch==0.3.2
+
+```
 
 # Create ssh config file
 
