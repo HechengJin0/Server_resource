@@ -38,6 +38,7 @@ https://crc.pitt.edu/viz
 ## interative jobs
 `srun -n1 -t02:00:00 --pty bash`
 https://crc.pitt.edu/user-manual/slurm-workload-manager/cluster-interactiveremote-computing-vs-code
+`crc-interactive -g -p a100_nvlink -b 40 -t 12`
 
 ## matlab/mricron interface
 `module load matlab`  
