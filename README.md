@@ -23,6 +23,14 @@ in storinator
 ## run singulairty in crc
 `module load singularity`     
 `singularity pull fmriprep_23.0.0.sif docker://nipreps/fmriprep:23.0.0`
+`singularity pull mriqc_25.sif docker://nipreps/mriqc:latest`    
+if no space : https://docs.sylabs.io/guides/2.5/user-guide/troubleshooting.html#no-space-left-on-device     
+`export SINGULARITY_CACHEDIR=/ix3/tibrahim/hej24/mriqc`    
+`singularity pull --tmpdir '/ix3/tibrahim/hej24/mriqc' /ix3/tibrahim/hej24/mriqc/mriqc_25.sif docker://nipreps/mriqc:latest`  
+`singularity run -B /local_bids_data:/bids_dir -B /local_output:/output_dir mriqc_25.sif /bids_dir /output_dir {participant,group}`
+
+
+
 
 ## mount cluster:    
 `sshfs -o kill_on_unmount,reconnect,allow_other hej24@cluster:/mnt/storinator cluster_mount`   
