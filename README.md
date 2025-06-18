@@ -27,9 +27,10 @@ in storinator
 if no space : https://docs.sylabs.io/guides/2.5/user-guide/troubleshooting.html#no-space-left-on-device     
 `export SINGULARITY_CACHEDIR=/ix3/tibrahim/hej24/mriqc`    
 `singularity pull --tmpdir '/ix3/tibrahim/hej24/mriqc' /ix3/tibrahim/hej24/mriqc/mriqc_25.sif docker://nipreps/mriqc:latest`  
-`singularity run -B /local_bids_data:/bids_dir -B /local_output:/output_dir mriqc_25.sif /bids_dir /output_dir {participant,group}`
+`singularity run -B /local_bids_data:/bids_dir -B /local_output:/output_dir mriqc_25.sif /bids_dir /output_dir {participant,group}`    
 
-
+[synthstrip killed](https://neurostars.org/t/synthstrip-error-while-running-mriqc/27721)
+`--n_procs=2 --mem=32` was working in crc
 
 
 ## mount cluster:    
